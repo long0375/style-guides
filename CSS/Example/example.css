@@ -1,0 +1,340 @@
+/*
+* @Author   : lilonglong
+* @Date     : 2014/11/14
+* @Version  : 0.1.0
+* @Mail     : long_mailbox@sina.com
+* @Reference: http://codeguide.bootcss.com/
+******************************************
+******************************************
+* 1.  Reset css
+* 2.  Base style
+* 3.  Box widget
+* 4.  Floors
+*/
+
+/* = 1. Reset css 
+=================================================*/
+/* 
+	@名称: base
+	@功能: 重设浏览器默认样式
+	@参考: http://aliceui.org/
+*/
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html{
+	color:#000;background:#fff;
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video {
+    display: inline-block;*display: inline;*zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{
+	font:12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+input,select,textarea{
+	font-size:100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{
+	border-collapse:collapse;border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset,img{
+	border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{
+	border:0;font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+	text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul {
+	list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+	text-align:left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:500;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;
+}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+	text-decoration:underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+	text-decoration:none;
+}
+
+/* = 2.  Base style
+=================================================*/
+/* 
+	@名称: Base
+	@功能: 定义公共基本样式。
+	@注意：代码上下顺序。
+*/
+a{ color: #333; }
+a:hover,
+a:focus{ color: #333; }
+
+.clearfix{ *zoom: 1;}
+.clearfix:after,
+.clearfix:before{
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.clearfix:after{ clear: both; }
+.pull-left{ float: left; }
+.pull-right{ float: right; }
+
+.block-center{ margin-left: auto; margin-right: auto; }
+
+
+/* for inline-block 前世今生 http://ued.taobao.org/blog/2012/08/inline-block/ */
+.inline-block-wrap{ font-size: 0; }
+.inline-block{
+	display: inline-block;
+	*display:  inline;
+	*zoom: 1;
+}
+
+.layout-fixed{ 
+	width: 1190px; 
+	min-width: 1190px;
+}
+.layout-custom{ margin-top: 40px; }
+
+/* text colors */
+.text-primary{ color: #437CE5; }
+.text-warning{ color: #E66F05; }
+.text-danger{ color: #C00; }
+
+/* text align */
+.text-center{ text-align: center; }
+
+/* = 3. Box widget
+=================================================*/
+/* 
+	@名称: Box
+	@功能: 定义公共 box 模块样式结构。
+	@提示：最大限度的提升代码复用性，降低代码耦合，考虑到与其他项目兼容的情况下。请为模块添加单独命名前缀。
+*/
+/* fix auto height */
+.box,
+.box-header,
+.box-body,
+.box-footer{ 
+	*zoom: 1;
+}
+.box:after,
+.box:before,
+.box-header:after,
+.box-header:before,
+.box-body:after,
+.box-body:before,
+.box-footer:after,
+.box-footer:before{
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.box:after,
+.box-header:after,
+.box-body:after,
+.box-footer:after{ 
+	clear: both; 
+}
+
+.box{
+	background-color: #fff;
+	margin-bottom: 50px;
+}
+
+.box-header{
+	height: 42px;
+	overflow: hidden;
+}
+.box-header-nav > li{ 
+	float: left;
+}
+.box-header-nav > li > a{
+	float: left;
+	display: block;
+	padding: 12px 10px 9px;
+	font-size: 14px;
+}
+.box-title{
+	float: left;
+	font-size: 20px;
+}
+.box-title-description{
+	font-size: 14px;
+}
+
+.box-main{ width: 950px; }
+.box-main .box-title{ 
+	padding-top: 6px; 
+	padding-right: 10px;
+}
+.box-main .box-title-description{ 
+	float: left;
+	padding-top: 12px; 
+}
+.box-sidebar{ width: 240px; }
+.box-sidebar .box-title{ 
+	font-size: 14px;
+}
+
+
+/* = 4. Floors
+=================================================*/
+
+/* 
+	@名称: Floors
+	@功能: 抽取公共 floor 样式。
+	@注意：floor 样式全部隶属于 .floor 命名空间。
+*/
+.floor .box-header { 
+	position: relative;
+	z-index: 1;	
+	border-bottom: 3px solid #437CE5;
+}
+.floor .box-header-nav{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+.floor .box-main .box-body,
+.floor .box-main .box-footer{
+
+	border-bottom: 1px solid #DDE0E6;
+	border-right: 1px solid #DDE0E6;
+}
+
+.floor-row{
+	*zoom: 1;	
+}
+.floor-row:after,
+.floor-row:before{
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.floor-row:after{
+	clear: both;
+}
+.floor-row .floor-col{
+	float: left;
+	position: relative;
+	z-index: 1;
+	border-left: 1px solid #DDE0E6;
+	width: 236px;
+}
+.floor-row .floor-col:last-child{
+	width: 237px;
+}
+.floor-row .floor-col-full{
+	float: none;
+	position: static;
+	width: auto;
+}
+.floor .box-body .floor-col{
+	height: 359px;
+}
+.floor .box-footer .floor-col{
+	height: 198px;
+}
+
+.floor .box-sidebar .box-header{ background-color: #437CE5;}
+.floor .box-sidebar .box-body{
+	min-height: 558px;
+	border-right: 1px solid #DDE0E6;
+	border-bottom: 1px solid #DDE0E6;
+}
+.floor .box-sidebar .box-title{ 
+	font-size: 14px;
+	color: #fff; 
+	padding: 11px 10px 10px;
+}
+
+/* 分层自定义每层独立样式 */
+
+/* floor one */
+.floor-one .box-header-nav > li{ margin-left: 10px;}
+.floor-one .box-header-nav > li:first-child{ margin-left: 0;}
+
+.floor-one-banner{
+	height: 350px;
+	width: 100%;
+	overflow: hidden;
+}
+.floor-one .box-sidebar .box-body{
+	min-height: 549px;
+}
+/* floor two */
+
+/* floor three */
+
+/* floor four */
+
+/* floor five 
